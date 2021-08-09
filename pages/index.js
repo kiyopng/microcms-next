@@ -1,29 +1,24 @@
-import Link from "next/link";
+import Card from "./components/Card";
 import { client } from "../libs/client";
 
-export default function Home({ design }) {
+export default function Home({ blog }) {
   return (
-    <div>
+    <main className="container mx-auto py-4">
       <ul>
-        {design.map((design) => (
-          <li key={design.id}>
-            <Link href={`/design/${design.id}`}>
-              <a>{design.name}</a>
-            </Link>
-          </li>
+        {blog.map((blog) => (
+          <Card data={blog} />
         ))}
       </ul>
-    </div>
+    </main>
   );
 }
 
-// データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
-  const data = await client.get({ endpoint: "design" });
+  const data = await client.get({ endpoint: "blog" });
 
   return {
     props: {
-      design: data.contents,
+      blog: data.contents,
     },
   };
 };

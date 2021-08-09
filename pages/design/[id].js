@@ -1,4 +1,4 @@
-// pages/blog/[id].js
+// pages/desgin/[id].js
 import { client } from "../../libs/client";
 
 export default function BlogId({ design }) {
