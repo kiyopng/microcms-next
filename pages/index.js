@@ -1,4 +1,4 @@
-import Card from "./components/Card";
+import Card from "../components/Card";
 import { client } from "../libs/client";
 
 export default function Home({ blog }) {
@@ -6,7 +6,7 @@ export default function Home({ blog }) {
     <main className="container mx-auto py-4">
       <ul>
         {blog.map((blog) => (
-          <Card data={blog} />
+          <Card data={blog} key={blog} />
         ))}
       </ul>
     </main>

@@ -22,7 +22,7 @@ export default function MyCard( { data } ) {
 
     return (
         <Card className={classes.root}>
-            <CardActionArea >
+            <CardActionArea href={`/blog/${data.id}`}>
             <CardMedia
                 className={classes.media}
                 image={`${data.image.url}`}
@@ -39,7 +39,7 @@ export default function MyCard( { data } ) {
             </CardActionArea>
             <CardActions>
             <Button href={`/blog/${data.id}`} size="small" color="primary">
-                <a>Learn More</a>
+                Learn More
             </Button>
             </CardActions>
         </Card>
