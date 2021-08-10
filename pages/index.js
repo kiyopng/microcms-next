@@ -1,15 +1,19 @@
+import Container from "@material-ui/core/Container";
 import Card from "../components/Card";
+import Grid from "@material-ui/core/Grid";
 import { client } from "../libs/client";
 
 export default function Home({ blog }) {
   return (
-    <main className="container mx-auto py-4">
-      <ul>
+    <Container maxWidth="lg">
+      <Grid container spacing={3}>
         {blog.map((blog) => (
-          <Card data={blog} key={blog} />
+          <Grid item key={blog.id}>
+            <Card data={blog} />
+          </Grid>
         ))}
-      </ul>
-    </main>
+      </Grid>
+    </Container>
   );
 }
 

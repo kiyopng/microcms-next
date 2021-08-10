@@ -25,7 +25,7 @@ export default function MyCard( { data } ) {
             <CardActionArea href={`/blog/${data.id}`}>
             <CardMedia
                 className={classes.media}
-                image={`${data.image.url}`}
+                image={data.image && `${data.image.url}?fm=webp`}
                 
             />
             <CardContent>
