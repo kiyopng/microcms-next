@@ -3,25 +3,20 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { GA_TRACKING_ID, pageview } from '../libs/gtag';
 import Header from "../components/Header";
+import NextNprogress from "nextjs-progressbar";
 import CommonMeta from "../components/CommonMeta";
 import CssBaseline from '@material-ui/core/CssBaseline';
-import nprogress from 'nprogress';
-import 'nprogress/nprogress.css';
 import "@material-tailwind/react/tailwind.css";
 
-nprogress.configure({ showSpinner: false, speed: 400, minimum: 0.25 });
-
 function MyApp({ Component, pageProps }) {
-  if (process.browser) nprogress.start();
   const router = useRouter();
+
   useEffect(() => {
-    nprogress.done();
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
-
     if (!GA_TRACKING_ID) return;
     const handleRouteChange = (url) => {
       pageview(url)
@@ -35,6 +30,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <React.Fragment>
       <CommonMeta />
+      <NextNprogress
+        color="#FFF"
+        startPosition={0.1}
+        stopDelayMs={100}
+        height={2}
+      />
       <Header />
       <CssBaseline />
       <Component {...pageProps} />

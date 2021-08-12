@@ -33,7 +33,7 @@ export default function MyNavbar() {
                     <Nav>
                         <NavLink href="#" ripple="light"
                             onClick={async () => {
-                                router.push("./about/");
+                                router.push("/about/");
                                 return false;
                             }}
                         >
@@ -42,7 +42,7 @@ export default function MyNavbar() {
                         </NavLink>
                         <NavLink href="#" ripple="light"
                             onClick={async () => {
-                                router.push("./tags/");
+                                router.push("/tags/");
                                 return false;
                             }}
                         >
