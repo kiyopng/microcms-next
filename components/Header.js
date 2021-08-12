@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import { useRouter } from 'next/router';
 import Navbar from "@material-tailwind/react/Navbar";
 import NavbarContainer from "@material-tailwind/react/NavbarContainer";
 import NavbarWrapper from "@material-tailwind/react/NavbarWrapper";
@@ -12,6 +13,7 @@ import Icon from "@material-tailwind/react/Icon";
 
 export default function MyNavbar() {
     const [openNavbar, setOpenNavbar] = useState(false);
+    const router = useRouter();
 
     return (
         <Navbar color="blue" navbar>
@@ -29,11 +31,21 @@ export default function MyNavbar() {
 
                 <NavbarCollapse open={openNavbar}>
                     <Nav>
-                        <NavLink href="../about/" ripple="light">
+                        <NavLink href="#" ripple="light"
+                            onClick={async () => {
+                                router.push("./about/");
+                                return false;
+                            }}
+                        >
                             <Icon name="account_circle" size="xl" />
                             About
                         </NavLink>
-                        <NavLink href="./tags/" ripple="light">
+                        <NavLink href="#" ripple="light"
+                            onClick={async () => {
+                                router.push("./tags/");
+                                return false;
+                            }}
+                        >
                             <Icon name="local_offer" size="xl" />
                             Tags
                         </NavLink>
