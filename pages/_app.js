@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { makeStyles } from '@material-ui/core/styles';
 import { GA_TRACKING_ID, pageview } from '../libs/gtag';
 import Header from "../components/Header";
-import Container from '@material-ui/core/container';
+import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import NextNprogress from "nextjs-progressbar";
 import CommonMeta from "../components/CommonMeta";
