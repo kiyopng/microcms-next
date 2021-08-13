@@ -34,7 +34,12 @@ const useStyles = makeStyles((theme)=>({
         },
     },
     media: {
-        height: 220,
+        [theme.breakpoints.down('sm')]: {
+            height: 150,
+        },
+        [theme.breakpoints.up('md')]: {
+            height: 220,
+        },
     },
     title: {
         display: "-webkit-box",

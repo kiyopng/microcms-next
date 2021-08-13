@@ -22,6 +22,7 @@ export default function BlogId({ blog }) {
             paddingBottom: theme.spacing(0.5),
             '& > *': {
                 marginRight: theme.spacing(0.5),
+                marginBottom: theme.spacing(0.5),
             },
         },
         datebox: {
@@ -48,7 +49,7 @@ export default function BlogId({ blog }) {
             position: "relative",
             top: -250,
             minHeight:400,
-            padding:theme.spacing(4),
+            padding:theme.spacing(3),
         },
         contents: {
             paddingTop: theme.spacing(2),
@@ -79,7 +80,11 @@ export default function BlogId({ blog }) {
                     ))}
                     </Box>
                     <Box className={classes.datebox}>
-                        <CachedIcon fontSize="small" color="action" /><Date dateString={blog.revisedAt} />
+                        {blog.revisedAt > blog.publishedAt &&
+                            <Box component="span">
+                                <CachedIcon fontSize="small" color="action" /><Date dateString={blog.revisedAt} />
+                            </Box>
+                        }
                         <QueryBuilderIcon fontSize="small" color="action" /><Date dateString={blog.publishedAt} />
                     </Box>
                     <Typography variant="body1" content="div" className={classes.contents}
