@@ -4,28 +4,37 @@ import { useRouter } from 'next/router';
 import { makeStyles } from '@material-ui/core/styles';
 import { GA_TRACKING_ID, pageview } from '../libs/gtag';
 import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Container from '@material-ui/core/container';
+import Typography from '@material-ui/core/Typography';
 import NextNprogress from "nextjs-progressbar";
 import CommonMeta from "../components/CommonMeta";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import "@material-tailwind/react/tailwind.css";
+
+function Copyright() {
+  return (
+    <Typography variant="body2">
+      {'MIZUAOI.NET'}
+    </Typography>
+  );
+}
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100vh',
-    marginBottom: theme.spacing(2),
   },
   main: {
     marginTop: theme.spacing(8),
     marginBottom: theme.spacing(2),
   },
   footer: {
-    padding: theme.spacing(3, 2),
-    marginTop: 'auto',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+    color: "#fff",
+    backgroundColor: "rgba(33, 150, 243)",
+    padding: theme.spacing(1, 2),
+    marginTop: "auto",
+    textAlign: "center"
   },
 }));
 
@@ -57,12 +66,16 @@ function MyApp({ Component, pageProps }) {
         startPosition={0.1}
         stopDelayMs={100}
       />
-      <Header />
-      <CssBaseline />
       <div className={classes.root}>
+        <Header />
+        <CssBaseline />
         <Component {...pageProps} className={classes.main} />
+        <footer className={classes.footer}>
+          <Container maxWidth="sm">
+            <Copyright />
+          </Container>
+        </footer>
       </div>
-      <Footer className={classes.footer} />
     </React.Fragment>
   );
 }

@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme)=>({
         paddingBottom: theme.spacing(0.5),
         '& > *': {
             marginRight: theme.spacing(0.5),
+            marginBottom: theme.spacing(0.5),
         },
     },
     datebox: {
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme)=>({
         },
     },
     media: {
-        height: 280,
+        height: 220,
     },
     title: {
         display: "-webkit-box",

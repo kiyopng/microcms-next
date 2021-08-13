@@ -25,7 +25,7 @@ export default function BlogId({ blog }) {
             },
         },
         datebox: {
-            textAlign: 'right',
+            textAlign: 'left',
             boxOrient: 'vertical',
             '& > *': {
                 marginRight: theme.spacing(0.5),
@@ -48,7 +48,7 @@ export default function BlogId({ blog }) {
             position: "relative",
             top: -250,
             minHeight:400,
-            padding:theme.spacing(5),
+            padding:theme.spacing(4),
         },
         contents: {
             paddingTop: theme.spacing(2),
