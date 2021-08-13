@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Date from './Date';
 import { useRouter } from 'next/router';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -8,12 +9,49 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Skeleton from '@material-ui/lab/Skeleton';
+import Box from '@material-ui/core/Box';
+import Chip from '@material-ui/core/Chip';
+import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
 
-const useStyles = makeStyles({
-    media: {
-        height: 300,
+const useStyles = makeStyles((theme)=>({
+    box: {
+        display: 'flex',
+        boxOrient: 'vertical',
+        justifyContent: 'right',
+        flexWrap: 'wrap',
+        paddingBottom: theme.spacing(0.5),
+        '& > *': {
+            marginRight: theme.spacing(0.5),
+        },
     },
-});
+    datebox: {
+        textAlign: 'right',
+        boxOrient: 'vertical',
+        '& > *': {
+            marginRight: theme.spacing(0.5),
+            marginBottom: theme.spacing(0.1),
+        },
+    },
+    media: {
+        height: 280,
+    },
+    title: {
+        display: "-webkit-box",
+        boxOrient: "vertical",
+        lineClamp: 2,
+        wordBreak: "break-all",
+        overflow: "hidden",
+        minHeight: 65,
+    },
+    body: {
+        display: "-webkit-box",
+        boxOrient: "vertical",
+        lineClamp: 2,
+        wordBreak: "break-all",
+        overflow: "hidden",
+        minHeight: 40,
+    }
+}));
 
 function CardLoad(props) {
     const { loading = false } = props.loading;
@@ -44,12 +82,28 @@ function CardLoad(props) {
                 </React.Fragment>
             ) : (
                 <React.Fragment>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Box className={classes.box}>
+                    {data.category.map((tag) => (
+                        <Chip
+                            key={tag}
+                            variant="outlined"
+                            size="small"
+                            label={`#${tag}`}
+                            component="a"
+                            clickable
+                            href="#chip"
+                        />
+                    ))}
+                    </Box>
+                    <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
                         {data.title}
                     </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {data.body}
+                    <Typography variant="body2" color="textSecondary" component="p" className={classes.body}>
+                        { data.description && data.description }
                     </Typography>
+                    <Box className={classes.datebox}>
+                        <QueryBuilderIcon fontSize="small" color="action" /><Date dateString={data.publishedAt} />
+                    </Box>
                 </React.Fragment>
                 )}
             </CardContent>
