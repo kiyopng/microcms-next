@@ -66,7 +66,7 @@ function CardLoad(props) {
     const router = useRouter();
 
     return (
-        <Card>
+        <Card variant="outlined">
             <CardActionArea
                 onClick={async () => {
                     router.push(`/blog/${data.id}`);
@@ -101,7 +101,7 @@ function CardLoad(props) {
                         />
                     ))}
                     </Box>
-                    <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
+                    <Typography gutterBottom variant="h6" component="h2" className={classes.title}>
                         {data.title}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p" className={classes.body}>

@@ -1,4 +1,4 @@
-
+import CommonMeta from "../components/CommonMeta";
 import Container from "@material-ui/core/Container";
 import Card from "../components/Card";
 import Grid from "@material-ui/core/Grid";
@@ -13,8 +13,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Home({ blog }) {
   const classes = useStyles();
+  const title = "MIZUAOI.NET";
+  const description = "MIZUAOI.NETのサイトです";
   return (
     <Container maxWidth="lg" className={classes.root}>
+      <CommonMeta title={title} description={description} />
       <Grid container spacing={3}>
         {blog.map((blog) => (
           <Grid item key={blog.id} xs={12} sm={6} md={4}>

@@ -31,7 +31,7 @@ export default function MyNavbar() {
 
                 <NavbarCollapse open={openNavbar}>
                     <Nav>
-                        <NavLink href="#" ripple="light"
+                        <NavLink ripple="light"
                             onClick={async () => {
                                 router.push("/about/");
                                 return false;
@@ -40,7 +40,7 @@ export default function MyNavbar() {
                             <Icon name="account_circle" size="xl" />
                             About
                         </NavLink>
-                        <NavLink href="#" ripple="light"
+                        <NavLink ripple="light"
                             onClick={async () => {
                                 router.push("/tags/");
                                 return false;

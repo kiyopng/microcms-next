@@ -1,13 +1,13 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { AnimatePresence } from 'framer-motion';
 import { makeStyles } from '@material-ui/core/styles';
 import { GA_TRACKING_ID, pageview } from '../libs/gtag';
 import Header from "../components/Header";
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import NextNprogress from "nextjs-progressbar";
-import CommonMeta from "../components/CommonMeta";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import "@material-tailwind/react/tailwind.css";
 
@@ -60,7 +60,6 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <React.Fragment>
-      <CommonMeta />
       <NextNprogress
         color="#FFF"
         startPosition={0.1}
@@ -69,7 +68,9 @@ function MyApp({ Component, pageProps }) {
       <div className={classes.root}>
         <Header />
         <CssBaseline />
-        <Component {...pageProps} className={classes.main} />
+        <AnimatePresence exitBeforeEnter>
+          <Component {...pageProps} className={classes.main} key={router.route} />
+        </AnimatePresence>
         <footer className={classes.footer}>
           <Container maxWidth="sm">
             <Copyright />

@@ -1,7 +1,9 @@
 import React from "react";
+import CommonMeta from "../../components/CommonMeta";
 import Date from '../../components/Date';
 import { client } from "../../libs/client";
 import { makeStyles } from '@material-ui/core/styles';
+import { motion } from "framer-motion";
 import Container from "@material-ui/core/Container";
 import Typography from '@material-ui/core/Typography';
 import Paper from "@material-ui/core/Paper";
@@ -59,12 +61,18 @@ export default function BlogId({ blog }) {
     const classes = useStyles();
 
     return (
-        <React.Fragment>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ ease: "easeOut", duration: 0.8 }}
+        >
+            <CommonMeta title={blog.title} description={blog.description} />
             <Paper elevation={0} square className={classes.bgImage}>
                 <Paper elevation={0} square className={classes.bgFilter} />
             </Paper>
             <Container>
-                <Paper elevation={3} className={classes.paper}>
+                <Paper elevation={0} variant="outlined" className={classes.paper}>
                     <Typography variant="h4" component="h1">{blog.title}</Typography>
                     <Box className={classes.box}>
                     {blog.category.map((tag) => (
@@ -94,7 +102,7 @@ export default function BlogId({ blog }) {
                     />
                 </Paper>
             </Container>
-        </React.Fragment>
+        </motion.div>
     );
 }
 
