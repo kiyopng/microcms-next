@@ -2,6 +2,7 @@ import CommonMeta from "../components/CommonMeta";
 import Container from "@material-ui/core/Container";
 import Card from "../components/Card";
 import Grid from "@material-ui/core/Grid";
+import { motion } from "framer-motion";
 import { client } from "../libs/client";
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -16,16 +17,23 @@ export default function Home({ blog }) {
   const title = "MIZUAOI.NET";
   const description = "MIZUAOI.NETのサイトです";
   return (
-    <Container maxWidth="lg" className={classes.root}>
-      <CommonMeta title={title} description={description} />
-      <Grid container spacing={3}>
-        {blog.map((blog) => (
-          <Grid item key={blog.id} xs={12} sm={6} md={4}>
-            <Card data={blog} />
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+    <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ ease: "easeOut", duration: 0.4 }}
+    >
+      <Container maxWidth="lg" className={classes.root}>
+        <CommonMeta title={title} description={description} />
+        <Grid container spacing={3}>
+          {blog.map((blog) => (
+            <Grid item key={blog.id} xs={12} sm={6} md={4}>
+              <Card data={blog} />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </motion.div>
   );
 }
 

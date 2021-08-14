@@ -65,7 +65,7 @@ export default function BlogId({ blog }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ ease: "easeOut", duration: 0.8 }}
+            transition={{ ease: "easeOut", duration: 0.4 }}
         >
             <CommonMeta title={blog.title} description={blog.description} />
             <Paper elevation={0} square className={classes.bgImage}>

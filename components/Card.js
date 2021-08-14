@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link";
 import PropTypes from 'prop-types';
 import Date from './Date';
 import { useRouter } from 'next/router';
@@ -95,9 +96,9 @@ function CardLoad(props) {
                             variant="outlined"
                             size="small"
                             label={`#${tag}`}
+                            href={`/tags/${tag}`}
                             component="a"
                             clickable
-                            href="#chip"
                         />
                     ))}
                     </Box>
