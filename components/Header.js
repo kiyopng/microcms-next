@@ -48,18 +48,14 @@ export default function MyNavbar() {
                     <Nav>
                         <NavLink
                             ripple="light"
-                            onClick={async () => {
-                                router.push("/about/");
-                            }}
+                            href="/about/"
                         >
                             <Icon name="account_circle" size="xl" />
                             About
                         </NavLink>
                         <NavLink
                             ripple="light"
-                            onClick={async () => {
-                                router.push("/tags/");
-                            }}
+                            href="/tags/"
                         >
                             <Icon name="local_offer" size="xl" />
                             Tags

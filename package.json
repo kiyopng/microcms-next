@@ -6,13 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "now-build": "cp canvas_lib64/*so.1 node_modules/canvas/build/Release/ && yarn build"
   },
   "dependencies": {
     "@material-tailwind/react": "0.3.4",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
+    "canvas": "^2.8.0",
     "date-fns": "^2.23.0",
     "framer-motion": "^4.1.17",
     "html-react-parser": "^1.2.8",

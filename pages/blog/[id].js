@@ -11,6 +11,7 @@ import Box from '@material-ui/core/Box';
 import Chip from '@material-ui/core/Chip';
 import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
 import CachedIcon from '@material-ui/icons/Cached';
+import createOgp from "../../utils/ogpUtils";
 
 export default function BlogId({ blog }) {
     const useStyles = makeStyles((theme) => ({
@@ -59,6 +60,7 @@ export default function BlogId({ blog }) {
         }
     }));
     const classes = useStyles();
+    const ogp = `assets/ogp/${blog.id}`;
 
     return (
         <motion.div
@@ -67,7 +69,7 @@ export default function BlogId({ blog }) {
             exit={{ opacity: 0 }}
             transition={{ ease: "easeOut", duration: 0.4 }}
         >
-            <CommonMeta title={blog.title} description={blog.description} />
+            <CommonMeta title={blog.title} description={blog.description} ogp={ogp} />
             <Paper elevation={0} square className={classes.bgImage}>
                 <Paper elevation={0} square className={classes.bgFilter} />
             </Paper>
@@ -118,6 +120,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
     const id = context.params.id;
     const data = await client.get({ endpoint: "blog", contentId: id });
+    void createOgp({id:data.id,title:data.title});
 
     return {
         props: {

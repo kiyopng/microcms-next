@@ -33,8 +33,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Tags({ tags }) {
     const classes = useStyles();
-    const title = "MIZUAOI.NET";
+    const title = "Tags | MIZUAOI.NET";
     const description = "MIZUAOI.NETのサイトです";
+    const ogp = "/assets/ogp/OGP.png";
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -43,7 +44,7 @@ export default function Tags({ tags }) {
             transition={{ ease: "easeOut", duration: 0.4 }}
         >
             <Container maxWidth="lg" className={classes.root}>
-                <CommonMeta title={title} description={description} />
+                <CommonMeta title={title} description={description} ogp={ogp} />
                 <Typography variant="h4" conponent="h2" align="center" className={classes.typography}>
                     Tags
                 </Typography>

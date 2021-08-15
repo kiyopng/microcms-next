@@ -16,6 +16,7 @@ export default function Home({ blog }) {
   const classes = useStyles();
   const title = "MIZUAOI.NET";
   const description = "MIZUAOI.NETのサイトです";
+  const ogp = "/assets/ogp/OGP.png";
   return (
     <motion.div
         initial={{ opacity: 0 }}
@@ -24,7 +25,7 @@ export default function Home({ blog }) {
         transition={{ ease: "easeOut", duration: 0.4 }}
     >
       <Container maxWidth="lg" className={classes.root}>
-        <CommonMeta title={title} description={description} />
+        <CommonMeta title={title} description={description} ogp={ogp} />
         <Grid container spacing={3}>
           {blog.map((blog) => (
             <Grid item key={blog.id} xs={12} sm={6} md={4}>

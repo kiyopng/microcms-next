@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     card: {
         marginTop: 80,
         overflow: "visible",
+        padding: theme.spacing(1),
     },
     icon: {
         color: "#2196f3",
@@ -49,8 +50,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function About({ about }) {
     const classes = useStyles();
-    const title = "MIZUAOI.NET";
+    const title = "About | MIZUAOI.NET";
     const description = "MIZUAOI.NETのサイトです";
+    const ogp = "/assets/ogp/OGP.png";
     const profile = about[0];
     return (
         <motion.div
@@ -60,7 +62,7 @@ export default function About({ about }) {
             transition={{ ease: "easeOut", duration: 0.4 }}
         >
             <Container maxWidth="lg" className={classes.root}>
-                <CommonMeta title={title} description={description} />
+                <CommonMeta title={title} description={description} ogp={ogp} />
                 <Typography variant="h4" conponent="h2" align="center" className={classes.typography}>
                     About
                 </Typography>
@@ -74,7 +76,7 @@ export default function About({ about }) {
                     <Typography variant="h5" align="center">
                         {profile.name}
                     </Typography>
-                    <Typography variant="body1" align="center" className={classes.description}
+                    <Typography variant="body1" component="div" align="center" className={classes.description}
                         dangerouslySetInnerHTML={{
                             __html: `${profile.description}`,
                         }}
