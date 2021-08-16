@@ -35,7 +35,7 @@ export default function Tags({ tags }) {
     const classes = useStyles();
     const title = "Tags | MIZUAOI.NET";
     const description = "MIZUAOI.NETのサイトです";
-    const ogp = "/assets/ogp/OGP.png";
+    const ogp = "/ogp/OGP.png";
     return (
         <motion.div
             initial={{ opacity: 0 }}

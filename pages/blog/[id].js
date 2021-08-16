@@ -60,7 +60,7 @@ export default function BlogId({ blog }) {
         }
     }));
     const classes = useStyles();
-    const ogp = "/assets/ogp/${blog.id}";
+    const ogp = "/ogp/${blog.id}";
 
     return (
         <motion.div

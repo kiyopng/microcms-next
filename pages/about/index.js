@@ -52,7 +52,7 @@ export default function About({ about }) {
     const classes = useStyles();
     const title = "About | MIZUAOI.NET";
     const description = "MIZUAOI.NETのサイトです";
-    const ogp = "/assets/ogp/OGP.png";
+    const ogp = "/ogp/OGP.png";
     const profile = about[0];
     return (
         <motion.div

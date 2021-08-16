@@ -16,7 +16,7 @@ export default function Home({ blog }) {
   const classes = useStyles();
   const title = "MIZUAOI.NET";
   const description = "MIZUAOI.NETのサイトです";
-  const ogp = "/assets/ogp/OGP.png";
+  const ogp = "/ogp/OGP.png";
   return (
     <motion.div
         initial={{ opacity: 0 }}
