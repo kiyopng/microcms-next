@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import { GA_TRACKING_ID } from '../libs/gtag';
-export const SITE_URL = process.env.SITE_URL;
 
 export default function CommonMeta({ title, description, ogp }) {
+    const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
+    
     return (
         <Head>
             <title>{title}</title>
@@ -11,6 +12,7 @@ export default function CommonMeta({ title, description, ogp }) {
             <meta property="og:description" content={description} />
             <meta property="og:image" content={`${SITE_URL}${ogp}`} />
             <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:image" content={`${SITE_URL}${ogp}`} />
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
             <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
             <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />

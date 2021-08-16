@@ -72,6 +72,7 @@ export default function About({ about }) {
                         src={`${profile.image.url}?fm=webp`}
                         rounded={true}
                         raised={true}
+                        alt="kiyopng"
                     />
                     <Typography variant="h5" align="center">
                         {profile.name}

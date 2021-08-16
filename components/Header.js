@@ -18,7 +18,7 @@ const MyNavLink = React.forwardRef(
             ...other
         } = props
         return (
-            <Link href={href}>
+            <Link href={href} passHref>
                 <NavLink ripple="light" ref={forwardedRef} {...other}/>
             </Link>
         )
@@ -35,7 +35,7 @@ export default function MyNavbar() {
             <NavbarContainer>
                 <NavbarWrapper>
                     <NavbarBrand>
-                        <Link href="/"><a className="text-lg">mizuaoi.net</a></Link>
+                        <Link href="/" passHref><a className="text-lg">mizuaoi.net</a></Link>
                     </NavbarBrand>
                     <NavbarToggler
                         color="white"
