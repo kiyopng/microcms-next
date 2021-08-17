@@ -41,6 +41,7 @@ export default function MyNavbar() {
                         color="white"
                         onClick={() => setOpenNavbar(!openNavbar)}
                         ripple="light"
+                        alt="ナビゲーションの開閉"
                     />
                 </NavbarWrapper>
 

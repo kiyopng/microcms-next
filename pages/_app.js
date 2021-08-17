@@ -13,9 +13,7 @@ import "@material-tailwind/react/tailwind.css";
 
 function Copyright() {
   return (
-    <Typography variant="body2">
-      {'MIZUAOI.NET'}
-    </Typography>
+    <Typography variant="body2">&copy; MIZUAOI.NET</Typography>
   );
 }
 

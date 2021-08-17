@@ -62,7 +62,7 @@ const createOgp = async (dynamic) => {
     });
 
     const buf = canvas.toBuffer();
-    fs.writeFileSync(path.resolve(`./assets/ogp/${dynamic.id}.png`), buf);
+    fs.writeFileSync(path.resolve(`./public/ogp/${dynamic.id}.png`), buf);
 
 };
 
