@@ -1,6 +1,7 @@
 import React from "react";
 import CommonMeta from "../../components/CommonMeta";
 import Date from '../../components/Date';
+import { useEffect, useState } from 'react';
 import { client } from "../../libs/client";
 import { makeStyles } from '@material-ui/core/styles';
 import { motion } from "framer-motion";
@@ -12,6 +13,8 @@ import Chip from '@material-ui/core/Chip';
 import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
 import CachedIcon from '@material-ui/icons/Cached';
 import createOgp from "../../utils/ogpUtils";
+import DOMPurify from "dompurify";
+import convertToHtml from '../../utils/convertToHtml';
 
 export default function BlogId({ blog }) {
     const useStyles = makeStyles((theme) => ({
@@ -61,6 +64,12 @@ export default function BlogId({ blog }) {
     }));
     const classes = useStyles();
     const ogp = `/ogp/${blog.id}.png`;
+    const [htmlString, setHtmlString] = useState('');
+    useEffect(() => {
+        if (blog.body) {
+            setHtmlString(DOMPurify().sanitize(convertToHtml(blog.body)));
+        }
+    }, []);
 
     return (
         <motion.div
@@ -97,9 +106,9 @@ export default function BlogId({ blog }) {
                         }
                         <QueryBuilderIcon fontSize="small" color="action" /><Date dateString={blog.publishedAt} />
                     </Box>
-                    <Typography variant="body1" content="div" className={classes.contents}
+                    <Typography component="div" className={'post' + " " + classes.contents}
                     dangerouslySetInnerHTML={{
-                        __html: `${blog.body}`,
+                        __html: htmlString,
                     }}
                     />
                 </Paper>

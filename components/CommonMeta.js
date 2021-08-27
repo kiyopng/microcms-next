@@ -21,6 +21,9 @@ export default function CommonMeta({ title, description, ogp }) {
             <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
             <meta name="msapplication-TileColor" content="#da532c" />
             <meta name="theme-color" content="#ffffff" />
+            <script>
+                if (!crossOriginIsolated) SharedArrayBuffer = ArrayBuffer;
+            </script>
             {/* Global Site Tag (gtag.js) - Google Analytics */}
             <script
                 async

@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import NextNprogress from "nextjs-progressbar";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import "@material-tailwind/react/tailwind.css";
+import '../styles/globals.scss';
 
 function Copyright() {
   return (
