@@ -41,7 +41,7 @@ export default function BlogId({ blog }) {
         },
         bgImage: {
             position: "relative",
-            top:-12,
+            top: -12,
             minHeight: 400,
             backgroundImage: `url(${blog.image.url}?fm=webp)`,
             backgroundSize: "cover",
@@ -54,12 +54,12 @@ export default function BlogId({ blog }) {
         paper: {
             position: "relative",
             top: -250,
-            minHeight:400,
-            padding:theme.spacing(3),
+            minHeight: 400,
+            padding: theme.spacing(3),
         },
         contents: {
             paddingTop: theme.spacing(2),
-            paddingBottom:theme.spacing(1.5),
+            paddingBottom: theme.spacing(1.5),
         }
     }));
     const classes = useStyles();
@@ -86,17 +86,17 @@ export default function BlogId({ blog }) {
                 <Paper elevation={0} variant="outlined" className={classes.paper}>
                     <Typography variant="h4" component="h1">{blog.title}</Typography>
                     <Box className={classes.box}>
-                    {blog.category.map((tag) => (
-                        <Chip
-                            key={tag}
-                            variant="outlined"
-                            size="small"
-                            label={`#${tag}`}
-                            component="a"
-                            clickable
-                            href="#chip"
-                        />
-                    ))}
+                        {blog.category.map((tag) => (
+                            <Chip
+                                key={tag}
+                                variant="outlined"
+                                size="small"
+                                label={`#${tag}`}
+                                component="a"
+                                clickable
+                                href="#chip"
+                            />
+                        ))}
                     </Box>
                     <Box className={classes.datebox}>
                         {blog.revisedAt > blog.publishedAt &&
@@ -107,9 +107,9 @@ export default function BlogId({ blog }) {
                         <QueryBuilderIcon fontSize="small" color="action" /><Date dateString={blog.publishedAt} />
                     </Box>
                     <Typography component="div" className={'post' + " " + classes.contents}
-                    dangerouslySetInnerHTML={{
-                        __html: htmlString,
-                    }}
+                        dangerouslySetInnerHTML={{
+                            __html: htmlString,
+                        }}
                     />
                 </Paper>
             </Container>
@@ -129,7 +129,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
     const id = context.params.id;
     const data = await client.get({ endpoint: "blog", contentId: id });
-    void createOgp({id:data.id,title:data.title});
+    void createOgp({ id: data.id, title: data.title });
 
     return {
         props: {
