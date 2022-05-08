@@ -1,4 +1,5 @@
 import React from "react";
+import fetch from "node-fetch";
 import CommonMeta from "../../components/CommonMeta";
 import Date from '../../components/Date';
 import { useEffect, useState } from 'react';
@@ -128,13 +129,18 @@ export const getStaticPaths = async () => {
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async (context) => {
-    const id = context.params.id;
-    const data = await client.get({ endpoint: "blog", contentId: id });
-    void createOgp({ id: data.id, title: data.title });
 
+    const slug = context.params?.slug;
+    const draftKey = context.previewData?.draftKey;
+    const content = await fetch(
+        `https://xxxxxx.microcms.io/api/v1/blog/${slug}${draftKey !== undefined ? `?draftKey=${draftKey}` : ''
+        }`,
+        { headers: { 'X-MICROCMS-API-KEY': process.env.apiKey || '' } }
+    )
+        .then((res) => res.json());
     return {
         props: {
-            blog: data,
-        },
+            blog: content,
+        }
     };
 };
